@@ -1,80 +1,71 @@
 import './App.css';
-import axios from 'axios';
-import {useEffect, useState} from 'react';
+import React, { useState } from 'react';
+import SpotifyHome from './SpotifyHome';
+import { NavbarBrand, Nav, NavItem, NavbarToggler, NavLink, Navbar, Collapse, Row } from "reactstrap";
+import { Routes, Route } from 'react-router-dom'
+import Home from './Home'
+import OurData from './OurData'
+import UserPodcasts from './UserPodcasts'
 
-function App() {
-const [token, setToken] = useState("")
-const [searchKey, setSearchKey] = useState("")
-const [artists, setArtists] = useState([])
 
-const CLIENT_ID = "0daf43b3ece84bc1967d73ece3612215"
-const REDIRECT_URI = "http://localhost:3000"
-const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-const RESPONSE_TYPE = "token"
-
-useEffect(() => {
-  const hash = window.location.hash
-  let token = window.localStorage.getItem("token")
-
-  if (!token && hash) {
-      token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
-
-      window.location.hash = ""
-      window.localStorage.setItem("token", token)
-  }
-
-  setToken(token)
-  console.log(token)
-
-}, [])
-
-const logout = () => {
-  setToken("")
-  window.localStorage.removeItem("token")
-}
-
-const searchArtists = async (e) => {
-  e.preventDefault()
-  const {data} = await axios.get("https://api.spotify.com/v1/search", {
-      headers: {
-          Authorization: `Bearer ${token}`
-      },
-      params: {
-          q: searchKey,
-          type: "artist"
-      }
-  })
-
-  setArtists(data.artists.items)
-}
-
-const renderArtists = () => {
-  return artists.map(artist => (
-      <div key={artist.id}>
-          {artist.images.length ? <img width={"100%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}
-          {artist.name}
-      </div>
-  ))
-}
-
-return (
-  <div className="App">
-    <header className="App-header">
-      <h1>Spotify React</h1>
-      {!token ? (<a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>
-          Login to Spotify  
-        </a>): 
-        (<button onClick={logout}>Logout</button>)}
+const App = () =>{
+  const [ navExpand, setNavExpand ] = useState(false)
+  return(
     <div>
-      <form onSubmit={searchArtists}>
-        <input type="text" onChange={(e) => setSearchKey(e.target.value)} />
-          <button type={"submit"}>Search</button>
-      </form>
-    </div>
-    </header>
-    {renderArtists()}
-  </div>
-);
+      <span className="font-link">
+          <Navbar
+            color="light"
+            expand="md"
+            light>  
+            <NavbarBrand href="/">
+              Podcast App
+            </NavbarBrand>
+            <NavbarToggler
+              className='me-2'
+              onClick={() => setNavExpand(!navExpand)}
+            />
+            <Collapse navbar isOpen={ navExpand }>
+              <Nav
+                className="me-auto"
+                navbar>
+                <NavItem>
+                  <NavLink href="/">
+                   | Home |
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/spotify">
+                   | Spotify |
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/ourdata">
+                    | API Mock Data |
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/mypodcasts">
+                    | My Playlist |
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </span>
+      <div>
+        <Routes>
+          <Route path = '/' element = {<Home/>}/>
+          <Route path = '/spotify' element = {<SpotifyHome />} />
+          <Route path = '/ourdata' element = {<Row><OurData /> </Row>} />
+          <Route path = '/mypodcasts' element = {<UserPodcasts />} />
+        </Routes>
+
+     </div>
+
+</div>
+
+
+  )
 }
 
 export default App;
