@@ -38,3 +38,6 @@ body {
     transform: rotate(360deg);
   }
 }
+button.btn.btn-primary{
+  background-color: black;
+}
