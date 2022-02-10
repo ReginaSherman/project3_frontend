@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap'
 import axios from "axios";
 
-const PodcastCard = (props) => {
+const SearchCard = (props) => {
     const { id, title, category, image_url } = props
     
    
@@ -11,7 +11,7 @@ const PodcastCard = (props) => {
         axios.post(`http://localhost:8001/playlists`, {title: title, category: category, image_url: image_url, id: id})
     }
 
-
+console.log(title)
 
     return(
         <div>
@@ -29,7 +29,7 @@ const PodcastCard = (props) => {
                 <Button onClick={handleSubmit}
                     color="primary"
                     >
-                    THIS IS A POST ROUTE
+                    THIS IS A POST ROUTE Y'ALL
                 </Button>
             </CardBody>
         </Card>
@@ -38,4 +38,4 @@ const PodcastCard = (props) => {
     )
 }
 
-export default PodcastCard;
+export default SearchCard;

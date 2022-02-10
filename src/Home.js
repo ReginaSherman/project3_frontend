@@ -1,23 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import PodcastCard from "./PodcastCard";
+import { Col } from 'reactstrap'
 
 const Home = () => {
+    const [ podcasts, setPodcasts ] = useState()
+    const url = `http://localhost:8000/podcasts`
+
+    useEffect(()=>{
+        axios.get(url)
+        .then(res =>{
+            setPodcasts(res.data)
+        })
+    }, [])
+        
+    if (!podcasts) return (
+        <>page loading.....</>
+    )
+    console.log(podcasts)
     return(
         <>
-            <h1>
-            TEAM AIR 
-            </h1>
-            <div>
-                1. We want to have a bunch of podcast cards on the home page 
-            </div>
-            <div>
-                2. We want to have a search bar on the home page as well
-            </div>
-            <div>
-                3. The cards/search feature would POST to our API
-            </div>
-            <div>
-                4. The "My Playlist" Tab would then GET (the data they just POSTED) from our API 
-            </div>
+            {podcasts.map((podcast) =>{
+                return(
+                    <Col xs='4'>
+                        <PodcastCard key = {podcast.id} {...podcast}
+                    /> 
+                    </Col>
+                )
+            })}
+
+
+
         </>
     )
 }
