@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import PodcastCard from "./PodcastCard";
+import PodcastCard from "./Components/PodcastComponents/PodcastCard";
 import { Col } from 'reactstrap'
 
 const Home = () => {

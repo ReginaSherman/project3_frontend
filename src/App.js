@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { NavbarBrand, Nav, NavItem, NavbarToggler, NavLink, Navbar, Collapse, Row } from "reactstrap";
 import { Routes, Route } from 'react-router-dom'
 import Home from './Home'
-import UserPodcasts from './UserPodcasts'
-import SearchBar from './SearchBar';
+import UserPodcasts from './Components/UserComponents/UserPodcasts'
+import SearchBar from './Components/SearchBar';
 import axios from 'axios';
 
 
