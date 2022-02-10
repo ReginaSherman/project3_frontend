@@ -5,7 +5,7 @@ import axios from "axios";
 const UserCards = (props) => {
     const { id, title, category, image_url } = props
     const deleteFunction = () => {
-        axios.delete(`http://localhost:8001/playlists/${id}`)
+        axios.delete(`http://localhost:8000/playlists/${id}`)
         window.location.reload()
 
     }
