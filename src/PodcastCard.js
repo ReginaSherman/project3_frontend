@@ -8,7 +8,7 @@ const PodcastCard = (props) => {
    
     const handleSubmit = (e) =>{
         e.preventDefault()
-        axios.post(`http://localhost:8001/playlists`, {title: title, category: category, image_url: image_url, id: id})
+        axios.post(`http://localhost:8000/playlists`, {title: title, category: category, image_url: image_url, id: id})
     }
 
 
