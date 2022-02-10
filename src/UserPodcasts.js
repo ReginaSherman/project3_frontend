@@ -5,7 +5,7 @@ import UserCards from './UserCards'
 
 const UserPodcasts = () => {
     const [ playlist, setPlaylist ] = useState()
-    const url = `http://localhost:8001/playlists`
+    const url = `http://localhost:8000/playlists`
 
     useEffect(()=>{
         axios.get(url)
