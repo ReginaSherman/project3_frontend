@@ -1,15 +1,30 @@
 import './App.css';
-import React, { useState } from 'react';
-import SpotifyHome from './SpotifyHome';
+import React, { useState, useEffect } from 'react';
 import { NavbarBrand, Nav, NavItem, NavbarToggler, NavLink, Navbar, Collapse, Row } from "reactstrap";
 import { Routes, Route } from 'react-router-dom'
 import Home from './Home'
-import OurData from './OurData'
 import UserPodcasts from './UserPodcasts'
+import SearchBar from './SearchBar';
+import axios from 'axios';
 
 
 const App = () =>{
   const [ navExpand, setNavExpand ] = useState(false)
+  const [ podcastData, setPodcastData ] = useState()
+  const url = `http://localhost:8000/podcasts`
+
+  useEffect(()=>{
+      axios.get(url)
+      .then(res =>{
+          setPodcastData(res.data)
+      })
+  }, [])
+      
+  if (!podcastData) return (
+      <>page loading.....</>
+  )
+  console.log(podcastData)
+
   return(
     <div>
       <span className="font-link">
@@ -18,7 +33,7 @@ const App = () =>{
             expand="md"
             light>  
             <NavbarBrand href="/">
-              Podcast App
+              TEAM AIR RULES
             </NavbarBrand>
             <NavbarToggler
               className='me-2'
@@ -34,18 +49,13 @@ const App = () =>{
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/spotify">
-                   | Spotify |
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/ourdata">
-                    | API Mock Data |
-                  </NavLink>
-                </NavItem>
-                <NavItem>
                   <NavLink href="/mypodcasts">
-                    | My Playlist |
+                    | My Podcasts |
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/search">
+                    | Search |
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -54,10 +64,9 @@ const App = () =>{
         </span>
       <div>
         <Routes>
-          <Route path = '/' element = {<Home/>}/>
-          <Route path = '/spotify' element = {<SpotifyHome />} />
-          <Route path = '/ourdata' element = {<Row><OurData /> </Row>} />
-          <Route path = '/mypodcasts' element = {<UserPodcasts />} />
+          <Route path = '/' element = {<Row><Home/></Row>}/>
+          <Route path = '/mypodcasts' element = {<Row><UserPodcasts/></Row>} />
+          <Route path= '/search' element ={ <Row><SearchBar placeholder = "Search by Podcast Title" data = {podcastData}/></Row>} />
         </Routes>
 
      </div>

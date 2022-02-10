@@ -1,11 +1,39 @@
-import React from "react";
+import axios from "axios";
+import {useState, useEffect} from "react";
+import {Col} from 'reactstrap'
+import UserCards from './UserCards'
 
-const UserPodcasts = () =>{
+const UserPodcasts = () => {
+    const [ playlist, setPlaylist ] = useState()
+    const url = `http://localhost:8001/playlists`
+
+    useEffect(()=>{
+        axios.get(url)
+        .then(res =>{
+            setPlaylist(res.data)
+        })
+    }, [])
+        
+    if (!playlist) return (
+        <>page loading.....</>
+    )
     return(
-        <div>
-            THIS IS WHERE THE DATA POSTED TO OUR API WOULD BE FETCHED/RENDERED
-        </div>
+        <>
+            {playlist.map((podcast) =>{
+                return(
+                    <>
+                        <Col xs='4'>
+                            <UserCards key = {podcast.id} id={podcast._id} {...podcast}/>
+                        </Col>
+                    </>
+                )
+            })}
+
+
+
+        </>
     )
 }
+
 
 export default UserPodcasts;

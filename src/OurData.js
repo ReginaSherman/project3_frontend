@@ -27,7 +27,7 @@ const OurData = () => {
                     // id = {podcast.id}
                     // title = {podcast.title}
                     // category = {podcast.category}
-                    />
+                    /> 
                     </Col>
                 )
             })}
