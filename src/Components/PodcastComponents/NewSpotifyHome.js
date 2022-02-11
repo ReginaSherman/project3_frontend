@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from 'axios';
+import SpotifyCards from './SpotifyCards'
+import { Col } from 'reactstrap'
 
 
 const NewSpotifyHome = () => {
@@ -50,13 +52,19 @@ const NewSpotifyHome = () => {
         setShows(data.shows.items)
     }
     const renderShows = () => {
-        return shows.map(show => (
-            <div key={show.id} {...show}>
-                {show.images.length ? <img width={"10%"} src={show.images[0].url} alt=""/> : <div>No Image</div>}
-                {show.name}
-            </div>
-        ))
+    return(
+            <>
+             {shows.map((show) => {
+                return( 
+                    <Col xs='4'>
+                     <SpotifyCards key={show.id} {...show}/>
+                    </Col>
+                )
+             })}
+            </>
+        )
     }
+     
     return (
         <div className="App">
             <header className="App-header">

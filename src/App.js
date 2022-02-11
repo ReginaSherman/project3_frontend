@@ -74,7 +74,7 @@ const App = () =>{
           <Route path = '/' element = {<SignIn />}/>
           <Route path = '/home' element = {<Row><Home /></Row>}/>
           <Route path = '/mypodcasts' element = {<Row><UserPodcasts/></Row>} />
-          <Route path = '/spotify' element = {<NewSpotifyHome/>} />
+          <Route path = '/spotify' element = {<Row><NewSpotifyHome/></Row>} />
           <Route path= '/search' element ={ <Row><SearchBar placeholder = "Search by Podcast Title" data = {podcastData}/></Row>} />
         </Routes>
 
