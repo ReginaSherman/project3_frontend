@@ -1,0 +1,9 @@
+.card-body{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+.card-title{
+    text-align: center;
+}   
