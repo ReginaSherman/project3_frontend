@@ -3,22 +3,22 @@ import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap'
 import axios from "axios";
 
 const SearchCard = (props) => {
-    const { id, title, category, image_url } = props
+    const { id, name, category, image_url } = props
     
    
     const handleSubmit = (e) =>{
         e.preventDefault()
-        axios.post(`http://localhost:8001/playlists`, {title: title, category: category, image_url: image_url, id: id})
+        axios.post(`http://localhost:8000/playlists`, {name: name, category: category, image_url: image_url, id: id})
     }
 
-console.log(title)
+console.log(name)
 
     return(
         <div>
         <Card>
             <CardBody>
                 <CardTitle tag = "h5">
-                    Podcast Title: {title}
+                    Podcast Title: {name}
                  </CardTitle>
                  <CardText>
                     Category: {category}

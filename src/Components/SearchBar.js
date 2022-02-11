@@ -4,13 +4,13 @@ import { Col } from 'reactstrap'
 
 const SearchBar = ({ placeholder, data }) => {
   const [filteredData, setFilteredData] = useState([]);
-
+  console.log(data)
   const handleFilter = (e) => {
     const searchWord = e.target.value;
     const newFilter = data.filter((value) => {
-      return value.title.toLowerCase().includes(searchWord.toLowerCase());
+      console.log(value.name)
+      return value.name.toLowerCase().includes(searchWord.toLowerCase());
     });
-
     if (searchWord === ""){
         setFilteredData([]);
     } else {
@@ -18,7 +18,7 @@ const SearchBar = ({ placeholder, data }) => {
     }
   };
   return (
-    <div>
+    <>
       <div>
         <input type="text" placeholder={placeholder} onChange={handleFilter} />
       </div>
@@ -35,7 +35,7 @@ const SearchBar = ({ placeholder, data }) => {
           })}
         </>
       )}
-    </div>
+    </>
   );
 };
 

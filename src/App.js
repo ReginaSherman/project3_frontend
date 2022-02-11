@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './Home'
 import UserPodcasts from './Components/UserComponents/UserPodcasts'
 import SearchBar from './Components/SearchBar';
+import SignIn from './Components/UserComponents/SignIn';
 import axios from 'axios';
 
 
@@ -44,7 +45,7 @@ const App = () =>{
                 className="me-auto"
                 navbar>
                 <NavItem>
-                  <NavLink href="/">
+                  <NavLink href="/home">
                    | Home |
                   </NavLink>
                 </NavItem>
@@ -64,7 +65,8 @@ const App = () =>{
         </span>
       <div>
         <Routes>
-          <Route path = '/' element = {<Row><Home/></Row>}/>
+          <Route path = '/' element = {<SignIn />}/>
+          <Route path = '/home' element = {<Row><Home /></Row>}/>
           <Route path = '/mypodcasts' element = {<Row><UserPodcasts/></Row>} />
           <Route path= '/search' element ={ <Row><SearchBar placeholder = "Search by Podcast Title" data = {podcastData}/></Row>} />
         </Routes>

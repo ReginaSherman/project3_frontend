@@ -1,25 +1,20 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 
 
 
-const SignIn = ({ userToken, setUserToken }) => {
+const SignUp = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-//   console.log(`user token: ${userToken}`)
-  const headers = {
-    'Content-Type': 'application/json',
-  }
+
   
   const handleSubmit = (e) => {
       e.preventDefault()
-      axios.post('http://localhost:8000/api/signin', {
+      axios.post('http://localhost:8000/signup', {
           email: email,
           password: password
-      }, {
-          headers: headers
       })
-      .then(res => localStorage.setItem('token', res.data.token))
       setEmail('')
       setPassword('')
   }
@@ -37,13 +32,13 @@ const SignIn = ({ userToken, setUserToken }) => {
 
   return (
       <div>
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form onSubmit={handleSubmit}>
               <input type='text' value={email} onChange={handleEmailChange}></input>
               <input type='text' value={password} onChange={handlePasswordChange}></input>
-              <input type='submit' value='Sign In'></input>
+              <input type='submit' value='Sign Up'></input>
           </form>
       </div>
   )
 }
 
-export default SignIn
+export default SignUp
