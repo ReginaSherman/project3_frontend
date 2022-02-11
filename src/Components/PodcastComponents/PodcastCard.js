@@ -5,13 +5,10 @@ import axios from "axios";
 const PodcastCard = (props) => {
     const { id, name, category, image_url } = props
     
-   
     const handleSubmit = (e) =>{
         e.preventDefault()
         axios.post(`http://localhost:8000/playlists`, {name: name, category: category, image_url: image_url, id: id})
     }
-
-
 
     return(
         <div>
@@ -34,7 +31,6 @@ const PodcastCard = (props) => {
             </CardBody>
         </Card>
         </div>
-        
     )
 }
 

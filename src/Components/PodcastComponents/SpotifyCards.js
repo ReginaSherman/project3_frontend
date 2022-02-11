@@ -51,7 +51,7 @@ const SpotifyTests = (props) =>{
                 </ModalBody>
                 <ModalFooter>
                     <Button color="success"
-                    href={external_urls.spotify}>
+                    href={external_urls.spotify} target="_blank">
                     Click to Listen
                     </Button>
                     <Button color="success" onClick={handleSubmit}>
