@@ -23,7 +23,7 @@ const UserPodcasts = () => {
                 return(
                     <>
                         <Col xs='4'>
-                            <UserCards key = {podcast.id} id={podcast._id} {...podcast}/>
+                            <UserCards key = {podcast.id} id={podcast._id} name={podcast.name} images={podcast.images}/>
                         </Col>
                     </>
                 )

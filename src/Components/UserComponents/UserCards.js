@@ -3,7 +3,8 @@ import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap'
 import axios from "axios";
 
 const UserCards = (props) => {
-    const { id, title, category, image_url } = props
+    const { id, name, images } = props
+    console.log(images)
     const deleteFunction = () => {
         axios.delete(`http://localhost:8000/playlists/${id}`)
         window.location.reload()
@@ -15,14 +16,10 @@ const UserCards = (props) => {
         <Card>
             <CardBody>
                 <CardTitle tag = "h5">
-                    Podcast Title: {title}
+                    Podcast Title: {name}
                  </CardTitle>
-               
-                 <CardText>
-                    Category: {category}
-                </CardText>
                 <CardText>
-                    <img src= {image_url} alt = "podcast"/>
+                {images.length ? <img width={"30%"} src={images[1].url} alt=""/> : <div>No Image</div>}
                 </CardText>
                 <Button onClick ={deleteFunction}
                 color ='danger'>
