@@ -1,15 +1,19 @@
 import {useEffect, useState} from "react";
-import './App.css';
 import axios from 'axios';
-function NewSpotifyHome() {
+
+
+const NewSpotifyHome = () => {
     const [searchKey, setSearchKey] = useState("")
     const [shows, setShows] = useState([])
+
     const getAPIToken = async () => {
-    let client_id = process.env.CLIENT_ID
-    let client_secret = process.env.CLIENT_SECRET
-    let encodedToken = process.env.ENCODED_TOKEN //base64 encoded from client id and secret using https://www.base64encode.org/
+
+    let client_id = "297f99b5025a4a0da6890d276fe9cf77"
+    let client_secret = "51915046cd354cdb84928604fe040e92"
+    let encodedToken = "Mjk3Zjk5YjUwMjVhNGEwZGE2ODkwZDI3NmZlOWNmNzc6NTE5MTUwNDZjZDM1NGNkYjg0OTI4NjA0ZmUwNDBlOTI"//base64 encoded from client id and secret using https://www.base64encode.org/
     //FIX:  btoa() not working now...
     // window.btoa((client_id + ':' + client_secret))
+    console.log(encodedToken)
     let url = 'https://accounts.spotify.com/api/token'
     let authOptions = {
         headers: {
@@ -24,6 +28,7 @@ function NewSpotifyHome() {
         console.log(data)
         return data.access_token
 }
+
 //FIX:  access tokens are good for an hour, there may be limits on them.  Currently, every search is generating a new token...
 //      see more notes at bottom...
     const searchShows = async (e) => {
@@ -46,7 +51,7 @@ function NewSpotifyHome() {
     }
     const renderShows = () => {
         return shows.map(show => (
-            <div key={show.id}>
+            <div key={show.id} {...show}>
                 {show.images.length ? <img width={"10%"} src={show.images[0].url} alt=""/> : <div>No Image</div>}
                 {show.name}
             </div>
