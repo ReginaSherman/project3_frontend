@@ -60,6 +60,11 @@ const App = () =>{
                     | Search |
                   </NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink href="/spotify">
+                    | Spotify |
+                  </NavLink>
+                </NavItem>
               </Nav>
             </Collapse>
           </Navbar>
