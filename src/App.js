@@ -7,6 +7,7 @@ import UserPodcasts from './Components/UserComponents/UserPodcasts'
 import SearchBar from './Components/SearchBar';
 import SignIn from './Components/UserComponents/SignIn';
 import axios from 'axios';
+import NewSpotifyHome from './Components/PodcastComponents/NewSpotifyHome';
 
 
 const App = () =>{
@@ -68,6 +69,7 @@ const App = () =>{
           <Route path = '/' element = {<SignIn />}/>
           <Route path = '/home' element = {<Row><Home /></Row>}/>
           <Route path = '/mypodcasts' element = {<Row><UserPodcasts/></Row>} />
+          <Route path = '/spotify' element = {<NewSpotifyHome/>} />
           <Route path= '/search' element ={ <Row><SearchBar placeholder = "Search by Podcast Title" data = {podcastData}/></Row>} />
         </Routes>
 
