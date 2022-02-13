@@ -43,7 +43,7 @@
     text-align: center;
     width: 25%;
 }
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 767px){
     .cards{
         display: block;
         width: 100%;
@@ -52,9 +52,16 @@
 
 .card{
    margin: 10px;
-   border: black .25rem solid;
+   border: black 5px solid;
+   border-radius: 50%;
+   box-shadow: rgb(0, 0, 0) 0px 0px 10px;
 }
 .card:hover{
     cursor: pointer;
     filter:opacity(.5);
+}
+
+.user-cards{
+    position: relative;
+    top: 80px;
 }

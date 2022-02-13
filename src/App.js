@@ -22,9 +22,7 @@ const App = () =>{
       })
   }, [])
       
-  if (!podcastData) return (
-      <>page loading.....</>
-  )
+  if (!podcastData) return <>page loading.....</>;
   console.log(podcastData)
 
   return(
@@ -69,7 +67,7 @@ const App = () =>{
         <Routes>
           <Route path = '/' element = {<SignIn />}/>
           <Route path = '/home' element = {<Row><Home /></Row>}/>
-          <Route path = '/mypodcasts' element = {<Row><UserPodcasts/></Row>} />
+          <Route path = '/mypodcasts' element = {<UserPodcasts/>} />
           <Route path = '/spotify' element = {<Row><NewSpotifyHome/></Row>} />
           <Route path= '/search' element ={ <Row><SearchBar placeholder = "Search by Podcast Title" data = {podcastData}/></Row>} />
         </Routes>

@@ -37,19 +37,20 @@ const NewSpotifyHome = () => {
         console.log("searchShows")
         const token = await getAPIToken()
         console.log(token)
-        const {data} = await axios.get("https://api.spotify.com/v1/search", {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            },
-            params: {
-                q: searchKey,
-                type: "show",
-                market: "US"    // don't let the endpoint docs fool you, this seems to be required (maybe just applies to shows?)
-            }
-        })
+        const { data } = await axios.get("https://api.spotify.com/v1/search", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          params: {
+            q: searchKey,
+            type: "show",
+            market: "US", // don't let the endpoint docs fool you, this seems to be required (maybe just applies to shows?)
+          },
+        });
         setShows(data.shows.items)
     }
+    console.log(shows)
     const renderShows = () => {
     return(
             <>
@@ -67,7 +68,7 @@ const NewSpotifyHome = () => {
             <header>
                     <form onSubmit={searchShows}>
                         <input type="text" onChange={e => setSearchKey(e.target.value)}/>
-                        <button type={"submit"}>Search</button>
+                        <button type={"submit"}>Search Spotify</button>
                     </form>
                 {renderShows()}
             </header>
