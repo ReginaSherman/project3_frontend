@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Card, CardBody, ModalFooter, CardTitle, CardText, Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
+import { ModalFooter, Button, Modal, ModalHeader, ModalBody, } from 'reactstrap'
+import '../UserComponents/Cards.css'
 import axios from 'axios'
+
 
 const SpotifyTests = (props) =>{
     const { name, images, description, total_episodes, external_urls, explicit } = props
@@ -11,27 +13,15 @@ const SpotifyTests = (props) =>{
     const handleSubmit = (e) =>{
       e.preventDefault()
       axios.post(`http://localhost:8000/playlists`, {name: name, images: images })
+      setModal(!modal)
   }
 
     return(
-    <div>
-        <Card>
-          <CardBody>
-              <CardTitle tag = "h5">
-                  <br/>{name}
-               </CardTitle>
-              <CardText>
-                {images.length ? <img width={"30%"} src={images[1].url} alt=""/> : <div>No Image</div>}
-              </CardText>
-              <Button
-                color="primary"
-                onClick={() => setModal(!modal)}
-              >
-               More Details
-              </Button> {' '}
-              <Button color="success" onClick={handleSubmit}>
-                    Add to Favorites
-                    </Button>
+    <div className="cards">
+                <div className="card" onClick={() => setModal(!modal)}>
+                  {images.length ? <img width={"100%"} src={images[0].url} alt=""/> : <div>No Image</div>}
+                </div>
+
               <Modal
                 isOpen={modal}>
                 <ModalHeader toggle={toggle} >
@@ -59,8 +49,6 @@ const SpotifyTests = (props) =>{
                     </Button>
                 </ModalFooter>
               </Modal>
-          </CardBody>
-      </Card>
   </div>
   )
     

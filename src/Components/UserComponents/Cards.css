@@ -1,0 +1,60 @@
+
+.card-body{
+   align-items: center;
+}
+/* Podcast Name */
+.card-title{
+    text-align: left;
+}   
+
+/* Details button */
+.btn.btn-primary{
+    background-color: black;
+} 
+.btn.btn-primary:hover{
+    background-color: rgb(0, 97, 138);
+} 
+
+/* Remove button */
+.btn.btn-danger{
+    background-color: black;
+    border-color: rgb(255, 255, 255);
+}
+.btn.btn-danger:hover{
+    background-color: rgb(147, 0, 0);
+}
+
+
+/* Add and Modal Buttons */
+.btn.btn-success{
+    background-color: rgb(46, 46, 189);
+}
+.btn.btn-success:hover{
+    background-color: rgb(0, 198, 184);
+}
+
+
+
+/* *********** */
+/* card as just the image */
+
+.cards{
+    display: inline-block;
+    text-align: center;
+    width: 25%;
+}
+@media only screen and (max-width: 600px){
+    .cards{
+        display: block;
+        width: 100%;
+    }
+}
+
+.card{
+   margin: 10px;
+   border: black .25rem solid;
+}
+.card:hover{
+    cursor: pointer;
+    filter:opacity(.5);
+}

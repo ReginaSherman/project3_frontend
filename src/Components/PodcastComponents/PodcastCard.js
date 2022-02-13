@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap'
+import '../UserComponents/Cards.css'
 import axios from "axios";
 
 const PodcastCard = (props) => {
@@ -21,7 +22,7 @@ const PodcastCard = (props) => {
                     Category: {category}
                 </CardText>
                 <CardText>
-                    <img src= {image_url} alt = "podcast"/>
+                    <img width={"60%"} src= {image_url} alt = "podcast"/>
                 </CardText>
                 <Button onClick={handleSubmit}
                     color="primary"

@@ -23,7 +23,7 @@ const UserCards = (props) => {
                 </CardText>
                 <Button onClick ={deleteFunction}
                 color ='danger'>
-                    Click to Remove Y'all
+                    remove
                 </Button>
             </CardBody>
         </Card>

@@ -5,7 +5,7 @@ import { Col } from 'reactstrap'
 
 const Home = () => {
     const [ podcasts, setPodcasts ] = useState()
-    const url = `http://localhost:8000/podcasts`
+    const url = 'http://localhost:8000/podcasts'
 
     useEffect(()=>{
         axios.get(url)

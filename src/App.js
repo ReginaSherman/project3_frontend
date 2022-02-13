@@ -13,7 +13,7 @@ import NewSpotifyHome from './Components/PodcastComponents/NewSpotifyHome';
 const App = () =>{
   const [ navExpand, setNavExpand ] = useState(false)
   const [ podcastData, setPodcastData ] = useState()
-  const url = `http://localhost:8000/podcasts`
+  const url = 'http://localhost:8000/podcasts'
 
   useEffect(()=>{
       axios.get(url)
@@ -33,6 +33,7 @@ const App = () =>{
           <Navbar
             color="light"
             expand="md"
+            fixed="top"
             light>  
             <NavbarBrand href="/">
               TEAM AIR RULES
