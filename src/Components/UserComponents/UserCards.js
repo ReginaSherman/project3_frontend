@@ -57,9 +57,11 @@ const UserCards = (props) => {
             Total Episodes: {total_episodes}
         </ModalBody>
         <ModalFooter>
-          <Button color="success" href={external_urls.spotify} target="_blank">
-            Click to Listen
-          </Button>
+          <div className="spotify-button">
+              <a href={external_urls.spotify} target="_blank"> 
+                <img src="/images/Listen-on-Spotify-badge@2x.png" width="100%"/>
+              </a>
+          </div>
           <Button color="success" onClick={deleteFunction}>
             Remove
           </Button>
