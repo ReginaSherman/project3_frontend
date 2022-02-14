@@ -1,8 +1,7 @@
-import {useEffect, useState} from "react";
+import React, {useState} from "react";
 import axios from 'axios';
 import SpotifyCards from './SpotifyCards'
-import { Col } from 'reactstrap'
-// import { axiosInstance } from './Axios'
+import './SpotifySearch.css'
 
 const NewSpotifyHome = () => {
     const [searchKey, setSearchKey] = useState("")
@@ -10,8 +9,8 @@ const NewSpotifyHome = () => {
 
     const getAPIToken = async () => {
 
-    let client_id = "297f99b5025a4a0da6890d276fe9cf77"
-    let client_secret = "51915046cd354cdb84928604fe040e92"
+    // let client_id = "297f99b5025a4a0da6890d276fe9cf77"
+    // let client_secret = "51915046cd354cdb84928604fe040e92"
     let encodedToken = "Mjk3Zjk5YjUwMjVhNGEwZGE2ODkwZDI3NmZlOWNmNzc6NTE5MTUwNDZjZDM1NGNkYjg0OTI4NjA0ZmUwNDBlOTI"//base64 encoded from client id and secret using https://www.base64encode.org/
     //FIX:  btoa() not working now...
     // window.btoa((client_id + ':' + client_secret))
@@ -38,27 +37,26 @@ const NewSpotifyHome = () => {
         console.log("searchShows")
         const token = await getAPIToken()
         console.log(token)
-        const {data} = await axios.get("https://api.spotify.com/v1/search", {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            },
-            params: {
-                q: searchKey,
-                type: "show",
-                market: "US"    // don't let the endpoint docs fool you, this seems to be required (maybe just applies to shows?)
-            }
-        })
+        const { data } = await axios.get("https://api.spotify.com/v1/search", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          params: {
+            q: searchKey,
+            type: "show",
+            market: "US", // don't let the endpoint docs fool you, this seems to be required (maybe just applies to shows?)
+          },
+        });
         setShows(data.shows.items)
     }
+    console.log(shows)
     const renderShows = () => {
     return(
             <>
              {shows.map((show) => {
                 return( 
-                    <Col xs='4'>
                      <SpotifyCards key={show.id} {...show}/>
-                    </Col>
                 )
              })}
             </>
@@ -66,11 +64,11 @@ const NewSpotifyHome = () => {
     }
      
     return (
-        <div className="App">
-            <header className="App-header">
+        <div className="search-bar">
+            <header>
                     <form onSubmit={searchShows}>
                         <input type="text" onChange={e => setSearchKey(e.target.value)}/>
-                        <button type={"submit"}>Search</button>
+                        <button type={"submit"}>Search Spotify</button>
                     </form>
                 {renderShows()}
             </header>

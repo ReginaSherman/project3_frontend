@@ -1,35 +1,72 @@
-import React from "react";
-import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap'
+import React, { useState } from "react";
+import { ModalFooter, Button, Modal, ModalHeader, ModalBody, } from 'reactstrap'
+import './Cards.css'
 import axios from "axios";
 
 const UserCards = (props) => {
-    const { id, name, images } = props
-    console.log(images)
-    const deleteFunction = () => {
-        axios.delete(`http://localhost:8000/playlists/${id}`)
-        window.location.reload()
+    console.log(props)
+  const {
+    name,
+    images,
+    description,
+    total_episodes,
+    external_urls,
+    explicit,
+    publisher,
+    _id,
+  } = props;
 
-    }
-    
-    return(
-        <div>
-        <Card>
-            <CardBody>
-                <CardTitle tag = "h5">
-                    Podcast Title: {name}
-                 </CardTitle>
-                <CardText>
-                {images.length ? <img width={"30%"} src={images[1].url} alt=""/> : <div>No Image</div>}
-                </CardText>
-                <Button onClick ={deleteFunction}
-                color ='danger'>
-                    Click to Remove Y'all
-                </Button>
-            </CardBody>
-        </Card>
-        </div>
-        
-    )
-}
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+
+  const deleteFunction = () => {
+    axios.delete(`http://localhost:8000/playlists/${_id}`);
+    window.location.reload();
+  };
+
+  return (
+    <div className="cards user-cards">
+      <div className="card" onClick={() => setModal(!modal)}>
+        {images.length ? (
+          <img width={"100%"} src={images[0].url} alt="" />
+        ) : (
+          <div>No Image</div>
+        )}
+      </div>
+
+      <Modal isOpen={modal}>
+        <ModalHeader toggle={toggle}>{name}</ModalHeader>
+        <ModalBody className="text-center">
+          {images.length ? (
+            <img width={"50%"} src={images[1].url} alt="" />
+          ) : (
+            <div>No Image</div>
+          )}
+        </ModalBody>
+        <ModalBody className="text-center">{description}</ModalBody>
+        <ModalBody
+          className="text-center"
+          style={{ color: explicit === true ? "red" : "green" }}
+        >
+          {explicit === true ? "EXPLICIT" : "CLEAN"}
+        </ModalBody>
+        <ModalBody className="text-center">
+              Published by: {publisher}
+        </ModalBody>    
+        <ModalBody className="text-center">
+            Total Episodes: {total_episodes}
+        </ModalBody>
+        <ModalFooter>
+          <Button color="success" href={external_urls.spotify} target="_blank">
+            Click to Listen
+          </Button>
+          <Button color="success" onClick={deleteFunction}>
+            Remove
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
 
 export default UserCards;

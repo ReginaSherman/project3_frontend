@@ -5,6 +5,7 @@ import PodcastCard from "./Components/PodcastComponents/PodcastCard";
 import { Col } from 'reactstrap'
 
 const Home = () => {
+
     const [podcasts, setPodcasts] = useState()
 
     useEffect(() => {

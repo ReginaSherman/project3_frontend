@@ -2,6 +2,7 @@ import {useState, useEffect} from "react"
 import {Col} from 'reactstrap'
 import UserCards from './UserCards'
 import { axiosInstance } from "../../Axios"
+import './Cards.css'
 
 const UserPodcasts = () => {
     const [ playlist, setPlaylist ] = useState()
@@ -25,18 +26,12 @@ const UserPodcasts = () => {
             {playlist.map((podcast) =>{
                 return(
                     <>
-                        <Col xs='4'>
-                            <UserCards key = {podcast.id} id={podcast._id} name={podcast.name} images={podcast.images}/>
-                        </Col>
-                    </>
+      {playlist.map((podcast) => {
+        return <UserCards key={podcast.id} {...podcast} />;
+      })}
+    </>
                 )
             })}
-
-
-
-        </>
-    )
-}
 
 
 export default UserPodcasts;

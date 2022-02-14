@@ -17,6 +17,7 @@ const App = () =>{
           <Navbar
             color="light"
             expand="md"
+            fixed="top"
             light>  
             <NavbarBrand href="/">
               TEAM AIR RULES
@@ -52,7 +53,7 @@ const App = () =>{
         <Routes>
           <Route path = '/' element = {<SignIn />}/>
           <Route path = '/home' element = {<Row><Home /></Row>}/>
-          <Route path = '/mypodcasts' element = {<Row><UserPodcasts/></Row>} />
+          <Route path = '/mypodcasts' element = {<UserPodcasts/>} />
           <Route path = '/spotify' element = {<Row><NewSpotifyHome/></Row>} />
           <Route path = '/signup' element = {<Row><SignUp /></Row>} />
 
