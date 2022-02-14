@@ -1,5 +1,4 @@
-import {useState, useEffect} from "react"
-import {Col} from 'reactstrap'
+import React, {useState, useEffect} from "react"
 import UserCards from './UserCards'
 import { axiosInstance } from "../../Axios"
 import './Cards.css'
@@ -23,15 +22,13 @@ const UserPodcasts = () => {
     )
     return(
         <>
-            {playlist.map((podcast) =>{
-                return(
-                    <>
+            
       {playlist.map((podcast) => {
         return <UserCards key={podcast.id} {...podcast} />;
       })}
     </>
-                )
-            })}
-
+    )
+}
+              
 
 export default UserPodcasts;

@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Button } from 'reactstrap';
-
+import './AuthPages.css'
 
 const SignIn = () => {
   const [email, setEmail] = useState('')
@@ -31,7 +30,6 @@ const SignIn = () => {
   const handleEmailChange = (e) => {
       e.preventDefault()
       setEmail(e.target.value)
-
   }
 
   const handlePasswordChange = (e) => {
@@ -51,6 +49,5 @@ const SignIn = () => {
       </div>
   )
 }
-
 
 export default SignIn

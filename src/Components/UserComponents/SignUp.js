@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
-
-
+import './AuthPages.css'
 
 const SignUp = () => {
   const [email, setEmail] = useState('')
@@ -22,7 +21,6 @@ const SignUp = () => {
   const handleEmailChange = (e) => {
       e.preventDefault()
       setEmail(e.target.value)
-
   }
 
   const handlePasswordChange = (e) => {
@@ -32,7 +30,7 @@ const SignUp = () => {
 
   return (
       <div>
-          <form onSubmit={handleSubmit}>
+          <form className="signup" onSubmit={handleSubmit}>
               <input type='text' value={email} onChange={handleEmailChange}></input>
               <input type='text' value={password} onChange={handlePasswordChange}></input>
               <input type='submit' value='Sign Up'></input>
