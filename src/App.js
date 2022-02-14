@@ -13,7 +13,7 @@ import NewSpotifyHome from './Components/PodcastComponents/NewSpotifyHome';
 const App = () =>{
   const [ navExpand, setNavExpand ] = useState(false)
   const [ podcastData, setPodcastData ] = useState()
-  const url = `http://localhost:8000/podcasts`
+  const url = 'http://localhost:8000/podcasts'
 
   useEffect(()=>{
       axios.get(url)
@@ -22,9 +22,7 @@ const App = () =>{
       })
   }, [])
       
-  if (!podcastData) return (
-      <>page loading.....</>
-  )
+  if (!podcastData) return <>page loading.....</>;
   console.log(podcastData)
 
   return(
@@ -33,6 +31,7 @@ const App = () =>{
           <Navbar
             color="light"
             expand="md"
+            fixed="top"
             light>  
             <NavbarBrand href="/">
               TEAM AIR RULES
@@ -68,7 +67,7 @@ const App = () =>{
         <Routes>
           <Route path = '/' element = {<SignIn />}/>
           <Route path = '/home' element = {<Row><Home /></Row>}/>
-          <Route path = '/mypodcasts' element = {<Row><UserPodcasts/></Row>} />
+          <Route path = '/mypodcasts' element = {<UserPodcasts/>} />
           <Route path = '/spotify' element = {<Row><NewSpotifyHome/></Row>} />
           <Route path= '/search' element ={ <Row><SearchBar placeholder = "Search by Podcast Title" data = {podcastData}/></Row>} />
         </Routes>

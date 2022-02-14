@@ -23,7 +23,7 @@ const SearchBar = ({ placeholder, data }) => {
         <input type="text" placeholder={placeholder} onChange={handleFilter} />
       </div>
 
-      {filteredData.length != 0 && (
+      {filteredData.length !== 0 && (
         <>
           {filteredData.slice(0, 4).map((value, key) => {
             //for our SPOTIFY MAP WE SHOULD SLICE TO 15-20
