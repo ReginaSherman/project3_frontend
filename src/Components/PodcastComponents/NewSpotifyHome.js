@@ -62,12 +62,12 @@ const NewSpotifyHome = () => {
             </>
         )
     }
-     
+    
     return (
         <div className="search-bar">
             <header>
-                    <form onSubmit={searchShows}>
-                        <input type="text" onChange={e => setSearchKey(e.target.value)}/>
+                    <form className="search-form" onSubmit={searchShows}>
+                        <input type="text" placeholder="Podcast Name" onChange={e => setSearchKey(e.target.value)}/>
                         <button type={"submit"}>Search Spotify</button>
                     </form>
                 {renderShows()}
