@@ -13,13 +13,13 @@ const App = () =>{
   return(
     <div>
       <span className="font-link">
-          <Navbar
-            color="light"
+          <Navbar className="nav-bar"
+            color=""
             expand="md"
             fixed="top"
-            light>  
+            dark>  
             <NavbarBrand href="/">
-              TEAM AIR RULES
+              <img src="/images/airpods-white-small.png"/>
             </NavbarBrand>
             <NavbarToggler
               className='me-2'

@@ -22,6 +22,8 @@ const PodcastCard = (props) => {
       <br/>
       <br/>
       <br/>
+   
+      {/* These breaks are just a bandaid, will fix actual cards with css */}
       <Card>
         <CardBody>
           <CardTitle tag="h5">Podcast Title: {name}</CardTitle>

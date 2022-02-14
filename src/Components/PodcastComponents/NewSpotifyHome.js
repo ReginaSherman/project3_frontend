@@ -6,6 +6,8 @@ import './SpotifySearch.css'
 const NewSpotifyHome = () => {
     const [searchKey, setSearchKey] = useState("")
     const [shows, setShows] = useState([])
+    const initialPlaceholder = 'Podcast Name'
+    const [placeholder, setPlaceholder] =useState(initialPlaceholder)
 
     const getAPIToken = async () => {
 
@@ -49,6 +51,7 @@ const NewSpotifyHome = () => {
           },
         });
         setShows(data.shows.items)
+        setPlaceholder(initialPlaceholder)
     }
     console.log(shows)
     const renderShows = () => {
@@ -64,15 +67,14 @@ const NewSpotifyHome = () => {
     }
     
     return (
-        <div className="search-bar">
-            <header>
-                    <form className="search-form" onSubmit={searchShows}>
-                        <input type="text" placeholder="Podcast Name" onChange={e => setSearchKey(e.target.value)}/>
-                        <button type={"submit"}>Search Spotify</button>
-                    </form>
-                {renderShows()}
-            </header>
+        <div className="search-form">
+            <form onSubmit={searchShows}>
+                <input className="search-input" type="text" placeholder={placeholder} onChange={e => setSearchKey(e.target.value)}/>
+                <button className="search-button" type={"submit"}>Search</button>
+            </form>
+            {renderShows()}
         </div>
+      
     );
 }
 export default NewSpotifyHome;
