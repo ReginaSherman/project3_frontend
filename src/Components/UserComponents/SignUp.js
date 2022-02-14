@@ -31,8 +31,8 @@ const SignUp = () => {
   return (
       <div>
           <form className="signup" onSubmit={handleSubmit}>
-              <input type='text' value={email} onChange={handleEmailChange}></input>
-              <input type='text' value={password} onChange={handlePasswordChange}></input>
+              <input type='text' value={email} placeholder="email" onChange={handleEmailChange}></input>
+              <input type='text' value={password} placeholder="password" onChange={handlePasswordChange}></input>
               <input type='submit' value='Sign Up'></input>
           </form>
       </div>
