@@ -1,31 +1,15 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavbarBrand, Nav, NavItem, NavbarToggler, NavLink, Navbar, Collapse, Row } from "reactstrap";
 import { Routes, Route } from 'react-router-dom'
 import Home from './Home'
 import UserPodcasts from './Components/UserComponents/UserPodcasts'
-import SearchBar from './Components/SearchBar';
 import SignIn from './Components/UserComponents/SignIn';
-import axios from 'axios';
 import NewSpotifyHome from './Components/PodcastComponents/NewSpotifyHome';
-
+import SignUp from './Components/UserComponents/SignUp';
 
 const App = () =>{
   const [ navExpand, setNavExpand ] = useState(false)
-  const [ podcastData, setPodcastData ] = useState()
-  const url = `http://localhost:8000/podcasts`
-
-  useEffect(()=>{
-      axios.get(url)
-      .then(res =>{
-          setPodcastData(res.data)
-      })
-  }, [])
-      
-  if (!podcastData) return (
-      <>page loading.....</>
-  )
-  console.log(podcastData)
 
   return(
     <div>
@@ -70,7 +54,10 @@ const App = () =>{
           <Route path = '/home' element = {<Row><Home /></Row>}/>
           <Route path = '/mypodcasts' element = {<Row><UserPodcasts/></Row>} />
           <Route path = '/spotify' element = {<Row><NewSpotifyHome/></Row>} />
-          <Route path= '/search' element ={ <Row><SearchBar placeholder = "Search by Podcast Title" data = {podcastData}/></Row>} />
+          <Route path = '/signup' element = {<Row><SignUp /></Row>} />
+
+
+          {/* <Route path= '/search' element ={ <Row><SearchBar placeholder = "Search by Podcast Title" data = {podcastData}/></Row>} /> */}
         </Routes>
 
      </div>

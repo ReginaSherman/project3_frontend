@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from 'axios';
 import SpotifyCards from './SpotifyCards'
 import { Col } from 'reactstrap'
-
+// import { axiosInstance } from './Axios'
 
 const NewSpotifyHome = () => {
     const [searchKey, setSearchKey] = useState("")

@@ -11,7 +11,7 @@ const SignUp = () => {
   
   const handleSubmit = (e) => {
       e.preventDefault()
-      axios.post('http://localhost:8000/signup', {
+      axios.post('http://localhost:8000/api/signup', {
           email: email,
           password: password
       })
