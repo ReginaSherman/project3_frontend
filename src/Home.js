@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { axiosInstance } from './Axios'
 import PodcastCard from "./Components/PodcastComponents/PodcastCard";
 import { Col } from 'reactstrap'
+import NewSpotifyHome from "./Components/PodcastComponents/NewSpotifyHome";
 
 const Home = () => {
 
@@ -24,6 +25,7 @@ const Home = () => {
     console.log(podcasts)
     return (
         <>
+        <NewSpotifyHome/>
             {podcasts.map((podcast) => {
                 return (
                     <Col xs='4'>

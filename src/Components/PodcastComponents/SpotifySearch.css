@@ -1,6 +1,13 @@
+.search-form{
+
+}
+
 .search-bar{
     position: relative;
     align-items: center;
     top: 60px;
-    
+    left: 10px;
+    width: 60px;
+    /* background-color: blue; */
+    /* box-shadow: rgb(0, 0, 0) 0px 0px 10px; */
 }

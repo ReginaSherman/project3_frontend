@@ -19,6 +19,9 @@ const PodcastCard = (props) => {
 
   return (
     <div>
+      <br/>
+      <br/>
+      <br/>
       <Card>
         <CardBody>
           <CardTitle tag="h5">Podcast Title: {name}</CardTitle>

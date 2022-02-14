@@ -5,7 +5,6 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './Home'
 import UserPodcasts from './Components/UserComponents/UserPodcasts'
 import SignIn from './Components/UserComponents/SignIn';
-import NewSpotifyHome from './Components/PodcastComponents/NewSpotifyHome';
 import SignUp from './Components/UserComponents/SignUp';
 
 const App = () =>{
@@ -41,20 +40,19 @@ const App = () =>{
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/spotify">
-                    | Search |
-                  </NavLink>
+                  {/* <NavLink href="/spotify"> */}
+                  {/* </NavLink> */}
                 </NavItem>
               </Nav>
             </Collapse>
           </Navbar>
         </span>
+        
       <div>
         <Routes>
           <Route path = '/' element = {<SignIn />}/>
           <Route path = '/home' element = {<Row><Home /></Row>}/>
           <Route path = '/mypodcasts' element = {<UserPodcasts/>} />
-          <Route path = '/spotify' element = {<Row><NewSpotifyHome/></Row>} />
           <Route path = '/signup' element = {<Row><SignUp /></Row>} />
 
 
