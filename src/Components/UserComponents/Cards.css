@@ -43,7 +43,7 @@
     text-align: center;
     width: 25%;
 }
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 575px){
     .cards{
         display: block;
         width: 100%;

@@ -15,7 +15,7 @@ const App = () =>{
       <span className="font-link">
           <Navbar className="nav-bar"
             color=""
-            expand="md"
+            expand="sm"
             fixed="top"
             dark>  
             <NavbarBrand href="/">
