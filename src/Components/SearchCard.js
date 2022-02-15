@@ -11,8 +11,6 @@ const SearchCard = (props) => {
         axios.post(`http://localhost:8000/playlists`, {name: name, category: category, image_url: image_url, id: id})
     }
 
-console.log(name)
-
     return(
         <div>
         <Card>

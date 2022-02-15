@@ -9,24 +9,24 @@ const SignUp = () => {
 
   
   const handleSubmit = (e) => {
-      e.preventDefault()
-      axios.post('http://localhost:8000/api/signup', {
-          email: email,
-          password: password
-      })
-      setEmail('')
-      setPassword('')
-  }
+    e.preventDefault();
+    axios.post("http://localhost:8000/api/signup", {
+      email: email,
+      password: password,
+    });
+    setEmail("");
+    setPassword("");
+  };
 
   const handleEmailChange = (e) => {
-      e.preventDefault()
-      setEmail(e.target.value)
-  }
+    e.preventDefault();
+    setEmail(e.target.value);
+  };
 
   const handlePasswordChange = (e) => {
-      e.preventDefault()
-      setPassword(e.target.value)
-  }
+    e.preventDefault();
+    setPassword(e.target.value);
+  };
 
   return (
       <div>

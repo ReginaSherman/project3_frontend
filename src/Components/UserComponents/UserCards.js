@@ -4,7 +4,6 @@ import './Cards.css'
 import axios from "axios";
 
 const UserCards = (props) => {
-    console.log(props)
   const {
     name,
     images,
@@ -28,7 +27,7 @@ const UserCards = (props) => {
     <div className="cards user-cards">
       <div className="card" onClick={() => setModal(!modal)}>
         {images.length ? (
-          <img width={"100%"} src={images[0].url} alt="" />
+          <img width={"100%"} src={images[0].url} alt=""/>
         ) : (
           <div>No Image</div>
         )}
