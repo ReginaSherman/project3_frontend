@@ -1,11 +1,10 @@
 import React from "react";
-import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap'
-import '../UserComponents/Cards.css'
+import { Card, CardBody, CardTitle, CardText, Button } from "reactstrap";
+import "../UserComponents/Cards.css";
 import axios from "axios";
 
 const PodcastCard = (props) => {
   const { id, name, category, image_url, external_urls } = props;
-  console.log(props);
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post(`http://localhost:8000/playlists`, {
@@ -19,10 +18,9 @@ const PodcastCard = (props) => {
 
   return (
     <div>
-      <br/>
-      <br/>
-      <br/>
-   
+      <br />
+      <br />
+      <br />
       {/* These breaks are just a bandaid, will fix actual cards with css */}
       <Card>
         <CardBody>

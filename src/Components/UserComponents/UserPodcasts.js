@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import UserCards from './UserCards'
-import { axiosInstance } from "../../Axios"
+import { axiosInstance } from "./Axios"
 import './Cards.css'
 
 const UserPodcasts = () => {

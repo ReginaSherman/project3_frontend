@@ -1,14 +1,14 @@
 import './App.css';
 import React, { useState } from 'react';
 import { NavbarBrand, Nav, NavItem, NavbarToggler, NavLink, Navbar, Collapse, Row } from "reactstrap";
-import { Routes, Route } from 'react-router-dom'
-import Home from './Home'
-import UserPodcasts from './Components/UserComponents/UserPodcasts'
+import { Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import UserPodcasts from './Components/UserComponents/UserPodcasts';
 import SignIn from './Components/UserComponents/SignIn';
 import SignUp from './Components/UserComponents/SignUp';
 
 const App = () =>{
-  const [ navExpand, setNavExpand ] = useState(false)
+  const [navExpand, setNavExpand] = useState(false);
 
   return(
     <div>
@@ -24,7 +24,7 @@ const App = () =>{
             <NavbarToggler
               className='me-2'
               onClick={() => setNavExpand(!navExpand)}
-            />
+              />
             <Collapse navbar isOpen={ navExpand }>
               <Nav
                 className="me-auto"
@@ -50,17 +50,10 @@ const App = () =>{
           <Route path = '/home' element = {<Row><Home /></Row>}/>
           <Route path = '/mypodcasts' element = {<UserPodcasts/>} />
           <Route path = '/signup' element = {<Row><SignUp /></Row>} />
-
-
-          {/* <Route path= '/search' element ={ <Row><SearchBar placeholder = "Search by Podcast Title" data = {podcastData}/></Row>} /> */}
         </Routes>
-
-     </div>
-
+      </div>
 </div>
-
-
-  )
+  );
 }
 
 export default App;
