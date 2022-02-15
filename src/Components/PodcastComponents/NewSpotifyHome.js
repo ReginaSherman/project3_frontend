@@ -48,6 +48,8 @@ const NewSpotifyHome = () => {
             q: searchKey,
             type: "show",
             market: "US", // don't let the endpoint docs fool you, this seems to be required (maybe just applies to shows?)
+            include_external: "audio",
+            limit: "50", // max limit
           },
         });
         setShows(data.shows.items)
