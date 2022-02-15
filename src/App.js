@@ -19,7 +19,7 @@ const App = () =>{
             fixed="top"
             dark>  
             <NavbarBrand href="/">
-              <img src="/images/airpods-white-small.png"/>
+              <img src="/images/airpods-white-small.png" alt="airpods logo"/>
             </NavbarBrand>
             <NavbarToggler
               className='me-2'
@@ -38,10 +38,6 @@ const App = () =>{
                   <NavLink href="/mypodcasts">
                     | My Podcasts |
                   </NavLink>
-                </NavItem>
-                <NavItem>
-                  {/* <NavLink href="/spotify"> */}
-                  {/* </NavLink> */}
                 </NavItem>
               </Nav>
             </Collapse>

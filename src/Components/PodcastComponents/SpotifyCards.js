@@ -47,8 +47,8 @@ const SpotifyTests = (props) => {
         </ModalBody>
         <ModalFooter>
           <div className="spotify-button">
-              <a href={external_urls.spotify} target="_blank"> 
-                <img src="/images/Listen-on-Spotify-badge@2x.png" width="100%"/>
+              <a href={external_urls.spotify} target="_blank" rel="noopener noreferrer"> 
+                <img src="/images/Listen-on-Spotify-badge@2x.png" width="100%" alt="listen on spotify button"/>
               </a>
           </div>
             <Button color="success" onClick={handleSubmit}>
