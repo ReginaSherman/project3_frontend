@@ -45,16 +45,14 @@ const App = () =>{
                   </NavLink>
                 </NavItem>
               </Nav>
-                <NavLink href='/signin'>
-                  <NavbarText>
-                    |Log In|
-                  </NavbarText>
-                </NavLink>
                 <NavLink href='/signin' onClick={logOut}>
                   <NavbarText>
-                    |Log Out|
+                    Log Out
                   </NavbarText>
                 </NavLink>
+                  <NavbarText>
+                    <img src="/images/poweredby.png" alt="spotify logo"/>
+                  </NavbarText>
             </Collapse>
           </Navbar>
         </span>

@@ -25,7 +25,7 @@ const Home = () => {
       <div className="sign-up-prompt">
         <h5 className="unauthorized">
           {" "}
-          Please <a href="/">Sign In</a> to View This Page
+          Please <a href="/signin">Sign In</a> to View This Page
         </h5>
         <h6 className="unauthorized">
           {" "}

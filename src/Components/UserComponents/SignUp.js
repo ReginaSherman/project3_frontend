@@ -33,12 +33,15 @@ const SignUp = () => {
 
   return (
     <Container>
-    <div>
+      <div className='center-everything'>
+      
           <form className="signup" onSubmit={handleSubmit}>
+            <h5>Please register with an email address and password below</h5>
               <input type='text' placeholder='Email Address' value={email} onChange={handleEmailChange}></input> 
               <input type='text' placeholder='Password' value={password} onChange={handlePasswordChange}></input> 
               <input type='submit' value='Sign Up'></input>
           </form>
+          
       </div>
     </Container>
   ) 

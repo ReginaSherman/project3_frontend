@@ -38,14 +38,16 @@ const SignIn = ({userEmail, setUserEmail}) => {
   }
 
   return (
-      <div className='signin'>
-          <h3>Welcome! Please sign in.</h3>
-          <form onSubmit={(e) => handleSubmit(e)}>
-              <input type='text' placeholder='Email Address' value={email} onChange={handleEmailChange}></input>{' '}
-              <input type='text' placeholder='Password' value={password} onChange={handlePasswordChange}></input>
-              <input type='submit' value='Sign In'></input>
-              <h6 className='unauthorized'> Don't have an account? <a href='/signup'>Sign Up</a></h6>
-          </form>
+      <div className='center-everything'>
+        <div className='signin'>
+            <h3>Welcome! Please sign in.</h3>
+            <form onSubmit={(e) => handleSubmit(e)}>
+                <input type='text' placeholder='Email Address' value={email} onChange={handleEmailChange}></input>{' '}
+                <input type='text' placeholder='Password' value={password} onChange={handlePasswordChange}></input>
+                <input type='submit' value='Sign In'></input>
+                <h6 className='unauthorized'> Don't have an account? <a href='/signup'>Sign Up</a></h6>
+            </form>
+        </div>
       </div>
   )
 }
