@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { axiosInstance } from './Components/UserComponents/Axios';
-import PodcastCard from "./Components/PodcastComponents/PodcastCard";
-import { Col } from 'reactstrap';
+// import PodcastCard from "./Components/PodcastComponents/PodcastCard";
+// import { Col } from 'reactstrap';
 import SpotifySearch from "./Components/PodcastComponents/SpotifySearch";
+import RandomPodcasts from "./Components/PodcastComponents/RandomPodcasts";
 
 const Home = () => {
   const [podcasts, setPodcasts] = useState();
@@ -29,16 +30,12 @@ const Home = () => {
 
   return (
     <>
-      <SpotifySearch />
-      {podcasts.map((podcast) => {
-        return (
-          <Col xs="4">
-            <PodcastCard key={podcast.id} {...podcast} />
-          </Col>
-        );
-      })}
+    <SpotifySearch/>
+    <br/>
+    <p></p>
+    <RandomPodcasts/>
     </>
-  );
+  )
 };
 
 export default Home;

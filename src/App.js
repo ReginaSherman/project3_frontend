@@ -7,6 +7,9 @@ import UserPodcasts from './Components/UserComponents/UserPodcasts';
 import SignIn from './Components/UserComponents/SignIn';
 import SignUp from './Components/UserComponents/SignUp';
 
+const logOut = () => {
+  localStorage.clear()
+}
 const App = () =>{
   const [navExpand, setNavExpand] = useState(false);
 
@@ -40,6 +43,16 @@ const App = () =>{
                   </NavLink>
                 </NavItem>
               </Nav>
+              <NavLink href='/signin'>
+                  <NavbarText>
+                  |  Log In  |
+                  </NavbarText>
+              </NavLink>
+              <NavLink NavLink href='/signin' onClick={logOut}> 
+                  <NavbarText>
+                    | Log Out  |
+                  </NavbarText>
+              </NavLink>
             </Collapse>
           </Navbar>
         </span>
@@ -47,7 +60,7 @@ const App = () =>{
       <div>
         <Routes>
           <Route path = '/' element = {<SignIn />}/>
-          <Route path = '/home' element = {<Row><Home /></Row>}/>
+          <Route path = '/home' element = {<Home />}/>
           <Route path = '/mypodcasts' element = {<UserPodcasts/>} />
           <Route path = '/signup' element = {<Row><SignUp /></Row>} />
         </Routes>
