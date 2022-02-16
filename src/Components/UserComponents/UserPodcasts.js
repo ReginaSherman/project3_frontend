@@ -22,12 +22,15 @@ const UserPodcasts = () => {
     )
     return(
         <>
+            <div className="favorites-podcasts">
+                <h5 className="random">My Favorite Podcasts!</h5>
+            </div> 
       {playlist.map((podcast) => {
         return <UserCards key={podcast.id} {...podcast} />;
       })}
     </>
     )
 }
-              
+
 
 export default UserPodcasts;
