@@ -21,7 +21,7 @@ const UserPodcasts = () => {
         </div>
     )
     return(
-        <>
+    <>
       {playlist.map((podcast) => {
         return <UserCards key={podcast.id} {...podcast} />;
       })}

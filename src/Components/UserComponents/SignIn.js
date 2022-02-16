@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AuthPages.css'
 
-const SignIn = () => {
+const SignIn = ({userEmail, setUserEmail}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
@@ -15,14 +15,14 @@ const SignIn = () => {
       e.preventDefault()
       axios.post('http://localhost:8000/api/signin', {
           email: email,
-          password: password
+          password: password,
       }, {
           headers: headers
       })
       .then(res => {
           localStorage.setItem('token', res.data.token)
-          navigate('./home')
         })
+        navigate('/home', { replace: true })
       setEmail('')
       setPassword('')
   }
@@ -39,7 +39,7 @@ const SignIn = () => {
 
   return (
       <div className='signin'>
-          <h3>Welcome! Please sign in to access your podcasts.</h3>
+          <h3>Welcome! Please sign in.</h3>
           <form onSubmit={(e) => handleSubmit(e)}>
               <input type='text' placeholder='Email Address' value={email} onChange={handleEmailChange}></input>{' '}
               <input type='text' placeholder='Password' value={password} onChange={handlePasswordChange}></input>
@@ -50,4 +50,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default SignIn;
