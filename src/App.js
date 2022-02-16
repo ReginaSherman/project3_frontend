@@ -7,13 +7,14 @@ import UserPodcasts from './Components/UserComponents/UserPodcasts';
 import SignIn from './Components/UserComponents/SignIn';
 import SignUp from './Components/UserComponents/SignUp';
 
-const logOut = () => { 
-  localStorage.clear()
-}
 
 const App = () =>{
   const [navExpand, setNavExpand] = useState(false);
-
+  
+  const logOut = () => { 
+    localStorage.clear()
+  }
+  
   return(
     <div>
       <span className="font-link">
@@ -54,9 +55,6 @@ const App = () =>{
                     |Log Out|
                   </NavbarText>
                 </NavLink>
-                  {/* <NavbarText>
-                    <img src ='/images/airpods-white-small.png'/>
-                  </NavbarText> */}
             </Collapse>
           </Navbar>
         </span>
