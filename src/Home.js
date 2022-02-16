@@ -29,16 +29,12 @@ const Home = () => {
 
   return (
     <>
-      <SpotifySearch />
-      {podcasts.map((podcast) => {
-        return (
-          <Col xs="4">
-            <PodcastCard key={podcast.id} {...podcast} />
-          </Col>
-        );
-      })}
+    <NewSpotifyHome/>
+    <br/>
+    <p></p>
+    <RandomPodcasts/>
     </>
-  );
+  )
 };
 
 export default Home;
