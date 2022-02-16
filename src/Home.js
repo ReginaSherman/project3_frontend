@@ -3,6 +3,7 @@ import { axiosInstance } from './Components/UserComponents/Axios';
 // import PodcastCard from "./Components/PodcastComponents/PodcastCard";
 // import { Col } from 'reactstrap';
 import SpotifySearch from "./Components/PodcastComponents/SpotifySearch";
+import RandomPodcasts from "./Components/PodcastComponents/RandomPodcasts";
 
 const Home = () => {
   const [podcasts, setPodcasts] = useState();
