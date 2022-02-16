@@ -4,7 +4,6 @@ import './Cards.css'
 import axios from "axios";
 
 const UserCards = (props) => {
-    console.log(props)
   const {
     name,
     images,
@@ -28,7 +27,7 @@ const UserCards = (props) => {
     <div className="cards user-cards">
       <div className="card" onClick={() => setModal(!modal)}>
         {images.length ? (
-          <img width={"100%"} src={images[0].url} alt="" />
+          <img width={"100%"} src={images[0].url} alt=""/>
         ) : (
           <div>No Image</div>
         )}
@@ -57,9 +56,11 @@ const UserCards = (props) => {
             Total Episodes: {total_episodes}
         </ModalBody>
         <ModalFooter>
-          <Button color="success" href={external_urls.spotify} target="_blank">
-            Click to Listen
-          </Button>
+          <div className="spotify-button">
+              <a href={external_urls.spotify} target="_blank" rel="noopener noreferrer"> 
+                <img src="/images/Listen-on-Spotify-badge@2x.png" width="100%" alt="listen on spotify button"/>
+              </a>
+          </div>
           <Button color="success" onClick={deleteFunction}>
             Remove
           </Button>
