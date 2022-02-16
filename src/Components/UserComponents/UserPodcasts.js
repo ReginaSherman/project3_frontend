@@ -20,13 +20,16 @@ const UserPodcasts = () => {
             
         </div>
     )
-    return(
-        <>
-      {playlist.map((podcast) => {
-        return <UserCards key={podcast.id} {...podcast} />;
-      })}
-    </>
-    )
+    return (
+      <>
+        <div className="favorites-podcasts">
+          <h5 className="random">My Favorite Podcasts!</h5>
+        </div>
+        {playlist.map((podcast) => {
+          return <UserCards key={podcast.id} {...podcast} />;
+        })}
+      </>
+    );
 }
               
 

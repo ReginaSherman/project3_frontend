@@ -17,7 +17,6 @@
 .card{
    margin: 10px;
    border: black 5px solid;
-   border-radius: 50%;
    box-shadow: rgb(0, 0, 0) 0px 0px 10px;
 }
 .card:hover{

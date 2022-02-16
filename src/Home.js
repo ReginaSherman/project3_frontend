@@ -1,24 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { axiosInstance } from './Components/UserComponents/Axios';
-import PodcastCard from "./Components/PodcastComponents/PodcastCard";
-import { Col } from 'reactstrap';
+// import { axiosInstance } from './Components/UserComponents/Axios';
 import SpotifySearch from "./Components/PodcastComponents/SpotifySearch";
+import RandomPodcasts from "./Components/PodcastComponents/RandomPodcasts";
+import { acceptsEncodings } from "express/lib/request";
+import axios from "axios";
+import './Home.css'
 
 const Home = () => {
   const [podcasts, setPodcasts] = useState();
 
   useEffect(() => {
-    axiosInstance.get("podcasts").then((res) => {
+    // axiosInstance.get("podcasts").then((res) => {
+    //   setPodcasts(res.data);
+    // });
+    axios.get('http://localhost:8000/podcasts', 
+    {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}})
+    .then((res)=>{
       setPodcasts(res.data);
-    });
-  }, []);
+    })
+  },[])
 
   if (!podcasts)
     return (
-      <div>
+      <div className="sign-up-prompt">
         <h5 className="unauthorized">
           {" "}
-          Please <a href="/">Sign In</a> to View This Page
+          Please <a href="/signin">Sign In</a> to View This Page
         </h5>
         <h6 className="unauthorized">
           {" "}
@@ -29,15 +36,11 @@ const Home = () => {
 
   return (
     <>
-      <SpotifySearch />
-      {podcasts.map((podcast) => {
-        return (
-          <Col xs="4">
-            <PodcastCard key={podcast.id} {...podcast} />
-          </Col>
-        );
-      })}
-    </>
+        <SpotifySearch/>
+        <br/>
+        <p></p>
+        <RandomPodcasts/>
+        </>
   );
 };
 
