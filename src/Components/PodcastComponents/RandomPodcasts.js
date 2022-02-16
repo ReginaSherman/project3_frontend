@@ -27,32 +27,6 @@ const RandomPodcasts = () => {
         return data.access_token
     }
 
-    const randos = async () => {
-        // e.preventDefault()
-        console.log("searchShows")
-        const randomNum = Math.floor((Math.random() * 20) + 1)
-        const randomOffset = randomNum.toString()
-        const token = await getAPIToken()
-        console.log(token)
-        const { data } = await axios.get("https://api.spotify.com/v1/search", {
-        headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-        },
-        params: {
-            q: "%25a%25",
-            type: "show",
-            market: "US",
-            include_external: "audio",
-            limit: "50",
-            offset: randomOffset,
-        },
-        });
-        console.log(data.shows.items)
-        setShows(data.shows.items)
-    }
-
-    // console.log(shows)
     const renderRandoShows = () => {
     return(
             <>
@@ -66,8 +40,32 @@ const RandomPodcasts = () => {
     }
     
     useEffect(() => {
+        const randos = async () => {
+            // e.preventDefault()
+            console.log("searchShows")
+            const randomNum = Math.floor((Math.random() * 20) + 1)
+            const randomOffset = randomNum.toString()
+            const token = await getAPIToken()
+            console.log(token)
+            const { data } = await axios.get("https://api.spotify.com/v1/search", {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            params: {
+                q: "%25a%25",
+                type: "show",
+                market: "US",
+                include_external: "audio",
+                limit: "50",
+                offset: randomOffset,
+            },
+            });
+            console.log(data.shows.items)
+            setShows(data.shows.items)
+        }
+    
         randos()
-        
     }, [])
 
     if (shows.length > 0) {

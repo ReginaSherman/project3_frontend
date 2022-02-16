@@ -21,10 +21,10 @@ const SignIn = ({userEmail, setUserEmail}) => {
       })
       .then(res => {
           localStorage.setItem('token', res.data.token)
+          navigate('/home', { replace: true })
         })
-        navigate('/home', { replace: true })
-      setEmail('')
-      setPassword('')
+        setEmail('')
+        setPassword('')
   }
 
   const handleEmailChange = (e) => {

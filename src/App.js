@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { NavbarBrand, Nav, NavItem, NavbarToggler, NavLink, Navbar, Collapse, Row, NavbarText } from "reactstrap";
+import { NavbarBrand, Nav, NavItem, NavbarToggler, NavLink, Navbar, Collapse, NavbarText } from "reactstrap";
 import { Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import UserPodcasts from './Components/UserComponents/UserPodcasts';
@@ -61,7 +61,7 @@ const App = () =>{
         
       <div>
         <Routes>
-          <Route path = '/' element = {<SignIn />}/>
+          <Route path = '/' element = {<Home />}/>
           <Route path = '/home' element = {<Home/>}/>
           <Route path = '/mypodcasts' element = {<UserPodcasts/>} />
           <Route path = '/signin' element = {<SignIn/>}/>
