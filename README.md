@@ -25,10 +25,10 @@
 
 ## Contributors
 
-Robert Julian
-Tim Rusin
-Regina Sherman
-Ted Tash
+- Robert Julian
+- Tim Rusin
+- Regina Sherman
+- Ted Tash
 
 ## Contribution Guidelines
 #### To view/contribute to the front end code visit: 
