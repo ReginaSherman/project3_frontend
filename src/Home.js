@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { axiosInstance } from './Components/UserComponents/Axios';
-import PodcastCard from "./Components/PodcastComponents/PodcastCard";
-import { Col } from 'reactstrap';
+// import PodcastCard from "./Components/PodcastComponents/PodcastCard";
+// import { Col } from 'reactstrap';
 import SpotifySearch from "./Components/PodcastComponents/SpotifySearch";
 
 const Home = () => {
@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <>
-    <NewSpotifyHome/>
+    <SpotifySearch/>
     <br/>
     <p></p>
     <RandomPodcasts/>
