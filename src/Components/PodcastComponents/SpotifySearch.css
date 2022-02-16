@@ -1,11 +1,11 @@
-.search-form {
+.search-form{
     position: relative;
     text-align: center;
-    top: 74px;
-    left: 5px;
+    top: 10px;
     font-size: .75rem;
     height: auto;
-    width: 50px;
+    width: 100%;
+    margin: 60px 0px 0px 0px;
 }
 
 .search-button {
@@ -29,4 +29,28 @@
 .search-input {
     box-shadow: rgba(0, 0, 0, 0.379) 0px 2px 10px;
     border-radius: 25px;
+}
+
+.random{
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 1px 1px 4px grey;
+}
+
+.search-results{
+    margin: 10px;
+    text-align: center;
+    text-shadow: 1px 1px 4px grey;
+}
+
+.search-background{
+    background-color: black;
+    height: 50px;
+    padding: 0px;
+}
+
+.favorites-podcasts{
+    position: relative;
+    top: 100px;
+    margin-bottom: 50px;
 }

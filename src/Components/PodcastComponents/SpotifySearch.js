@@ -60,7 +60,7 @@ const SpotifySearch = () => {
 
   return (
     <div className="search-form">
-      <form onSubmit={searchShows}>
+      <form className="search-background" onSubmit={searchShows}>
         <input
           className="search-input"
           type="text"
@@ -70,7 +70,22 @@ const SpotifySearch = () => {
         <button className="search-button" type={"submit"}>
           Search
         </button>
+
+        <input
+          className="search-button"
+          type={"reset"}
+          value="Clear"
+          onClick={(e) => {
+            setSearchKey("");
+            setShows([]);
+          }}
+        />
       </form>
+      {searchKey && (
+        <>
+          <h4 className="search-results">search: {searchKey}</h4>
+        </>
+      )}
       {renderShows()}
     </div>
   );
